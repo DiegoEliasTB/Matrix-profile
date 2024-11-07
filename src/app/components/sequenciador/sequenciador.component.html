@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="separador">
+    <label class="texto" for="quantidadeSubsequencia"
+      >Insira a quantidade da subsequência</label
+    >
+    <input
+      type="number"
+      name="quantidadeSubsequencia"
+      id="quantidadeSubsequencia"
+      value="4"
+    />
+  </div>
+  <div class="separador">
+    <span class="texto">Insira os valores da vetor para serem calculados</span>
+    <div class="container-vetor">
+      <div class="container-input">
+        <input class="input-vetor" type="number" value="0" />
+        <input class="input-vetor" type="number" value="0" />
+        <input class="input-vetor" type="number" value="0" />
+        <input class="input-vetor" type="number" value="0" />
+      </div>
+
+      <button class="botaoAdicionar" (click)="adicionar()">+</button>
+    </div>
+  </div>
+
+  <div class="separador">
+    <button (click)="emitirDados()" class="botaoEnviar">Calcular</button>
+  </div>
+</div>
