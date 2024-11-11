@@ -8,13 +8,18 @@
 .container-vetor {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.container-input {
+  max-width: 270px;
 }
 
 .botaoAdicionar {
   margin-left: 0.5rem;
   font-weight: bold;
   border-radius: 50%;
-  border: none;
+  border: solid 1px black;
   width: 2.2rem;
   height: 2.2rem;
   text-align: center;
@@ -22,7 +27,11 @@
   text-justify: initial;
 }
 
-.botaoEnviar {
+.container-botao {
+  display: flex;
+}
+
+.botaoFormulario {
   width: 12rem;
   height: 3rem;
   border: none;
@@ -31,6 +40,13 @@
   border-radius: 4px;
   margin-top: 1.5rem;
   font-size: 18px;
+}
+
+.botao-cancelar {
+  width: 40px;
+  margin-left: 0.25rem;
+  border: solid 1px #e6314f;
+  border-bottom: solid 3px #e6314f;
 }
 
 .flex-central {
@@ -61,8 +77,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 0px;
   text-align: center;
   border-left: solid 2px rgb(0, 0, 0);
@@ -74,7 +90,13 @@ input[type="number"] {
   background-color: #4472c4;
   -moz-appearance: textfield;
 
+  margin-bottom: 0.15rem;
+
   &:last-child {
+    border-right: 2px solid black;
+  }
+
+  &:nth-child(6n) {
     border-right: 2px solid black;
   }
 }

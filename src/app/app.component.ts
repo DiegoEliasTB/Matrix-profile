@@ -1,17 +1,31 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgZone,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SequenciadorModule } from './components/sequenciador/sequenciador.module';
+import { GraficoModule } from './components/grafico/grafico.module';
+import { GraficoComponent } from './components/grafico/grafico.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, SequenciadorModule],
+  imports: [
+    RouterOutlet,
+    ReactiveFormsModule,
+    SequenciadorModule,
+    GraficoModule,
+  ],
+  providers: [GraficoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  private vetorPrincipal: number[] = [];
+  vetorPrincipal: number[] = [];
   private tamanhoSubsequencia: number;
 
   formulario!: FormGroup;
@@ -19,7 +33,7 @@ export class AppComponent implements OnInit {
 
   sequenciaFinal: number[] = [];
 
-  constructor(private ngZone: NgZone) {
+  constructor(private ngZone: NgZone, private grafico: GraficoComponent) {
     this.formBuilder = new FormBuilder();
     this.vetorPrincipal.push(...[0, 1, 3, 2, 9, 1, 14, 15, 1, 2, 2, 10, 7]);
     this.tamanhoSubsequencia = 4;
@@ -27,7 +41,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.inicializaFormulario();
-    //this.iniciarPrograma();
   }
 
   getDadosVetor(event: {
@@ -40,6 +53,10 @@ export class AppComponent implements OnInit {
     this.tamanhoSubsequencia = event.quantidadeSubsequencia;
 
     this.iniciarPrograma();
+
+    setTimeout(() => {
+      this.grafico.createChart(this.sequenciaFinal);
+    });
   }
 
   private inicializaFormulario(): void {
@@ -60,6 +77,12 @@ export class AppComponent implements OnInit {
       );
 
       this.sequenciaFinal.push(valorFinal);
+    }
+
+    const isTodosValoresZero = this.sequenciaFinal.every((it) => it === 0);
+    if (isTodosValoresZero) {
+      this.sequenciaFinal.length = 0;
+      this.sequenciaFinal = [0];
     }
 
     const valorNovo = this.sequenciaFinal;

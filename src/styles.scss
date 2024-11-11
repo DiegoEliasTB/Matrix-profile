@@ -4,12 +4,15 @@
   --color-grey: #4e4d4d;
 }
 
-html {
+html,
+body {
   height: 100vh;
   width: 100%;
   background-color: #fcfcfc;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
