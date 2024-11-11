@@ -27,6 +27,7 @@ import { GraficoComponent } from './components/grafico/grafico.component';
 export class AppComponent implements OnInit {
   vetorPrincipal: number[] = [];
   private tamanhoSubsequencia: number;
+  private casasDecimais: number;
 
   formulario!: FormGroup;
   formBuilder!: FormBuilder;
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
     this.formBuilder = new FormBuilder();
     this.vetorPrincipal.push(...[0, 1, 3, 2, 9, 1, 14, 15, 1, 2, 2, 10, 7]);
     this.tamanhoSubsequencia = 4;
+    this.casasDecimais = 1;
   }
 
   ngOnInit(): void {
@@ -46,11 +48,13 @@ export class AppComponent implements OnInit {
   getDadosVetor(event: {
     vetor: number[];
     quantidadeSubsequencia: number;
+    casasDecimais: number;
   }): void {
     this.sequenciaFinal.length = 0;
 
     this.vetorPrincipal = event.vetor;
     this.tamanhoSubsequencia = event.quantidadeSubsequencia;
+    this.casasDecimais = event.casasDecimais;
 
     this.iniciarPrograma();
 
@@ -139,6 +143,6 @@ export class AppComponent implements OnInit {
       soma += (vetor1[i] - vetor2[i]) ** 2;
     }
 
-    return Number(Math.sqrt(soma).toFixed(1));
+    return Number(Math.sqrt(soma).toFixed(this.casasDecimais));
   }
 }

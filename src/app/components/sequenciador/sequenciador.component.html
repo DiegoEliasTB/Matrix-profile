@@ -11,6 +11,19 @@
     />
   </div>
   <div class="separador">
+    <label class="texto" for="casasDecimais"
+      >Insira a quantidade de casas decimais</label
+    >
+    <input
+      type="number"
+      name="casasDecimais"
+      id="casasDecimais"
+      value="1"
+      min="1"
+      max="3"
+    />
+  </div>
+  <div class="separador">
     <span class="texto">Insira os valores da vetor para serem calculados</span>
     <div class="container-vetor">
       <div class="container-input">
@@ -35,6 +48,8 @@
 
   <div class="container-botao">
     <button (click)="emitirDados()" class="botaoFormulario">📊 Calcular</button>
-    <button (click)="clear()" class="botaoFormulario botao-cancelar">🔃</button>
+    <button (click)="limpar()" class="botaoFormulario botao-cancelar">
+      🔃
+    </button>
   </div>
 </div>

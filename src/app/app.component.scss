@@ -29,12 +29,17 @@ h1 {
   font-size: 18px;
 
   width: 2.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+
   height: 2.5rem;
   border-left: solid 2px black;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   background-color: rgb(202, 202, 198);
   margin-bottom: 0.15rem;
+
+  font-size: 12px;
 
   &:last-child {
     border-right: solid 2px black;
