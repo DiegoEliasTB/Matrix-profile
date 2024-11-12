@@ -23,7 +23,6 @@ export class SequenciadorComponent {
 
     inputVetorLista.forEach((item) => vetor.push(Number(item.value || 0)));
 
-    //TODO fazer via formulário angular
     const quantidade = this.el.nativeElement.querySelector(
       '#quantidadeSubsequencia'
     ) as HTMLInputElement;
@@ -37,6 +36,16 @@ export class SequenciadorComponent {
       quantidadeSubsequencia: Number(quantidade.value),
       casasDecimais: Number(Number(casasDecimais.value).toFixed(0)),
     });
+  }
+
+  adicionar() {
+    var container = this.getContainer() as HTMLDivElement;
+
+    var inputNumber: HTMLInputElement = this.renderer.createElement('input');
+    inputNumber.type = 'number';
+
+    inputNumber.className = 'input-vetor';
+    container.appendChild(inputNumber);
   }
 
   limpar() {
@@ -59,34 +68,12 @@ export class SequenciadorComponent {
     this.renderer.setProperty(inputQuantidadeSubsequencia, 'value', 1);
 
     const inputCasasDecimais = this.el.nativeElement.querySelector(
-      '#inputCasasDecimais'
+      '#casasDecimais'
     ) as HTMLInputElement;
 
     this.renderer.setProperty(inputCasasDecimais, 'value', 1);
 
     this.adicionar();
-  }
-
-  adicionar() {
-    var container = this.getContainer() as HTMLDivElement;
-
-    var inputNumber: HTMLInputElement = this.renderer.createElement('input');
-    inputNumber.type = 'number';
-
-    inputNumber.className = 'input-vetor';
-    container.appendChild(inputNumber);
-  }
-
-  criarInputQuantidadeSubsequencia(divPai: HTMLInputElement) {
-    var inputNumber: HTMLInputElement = this.renderer.createElement('input');
-    inputNumber.type = 'number';
-
-    inputNumber.className = 'input-vetor';
-    inputNumber.id = 'quantidadeSubsequencia';
-    inputNumber.className = 'quantidadeSubsequencia';
-    inputNumber.value = '1';
-
-    divPai.appendChild(inputNumber);
   }
 
   private getContainer(): HTMLElement {

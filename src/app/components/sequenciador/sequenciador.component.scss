@@ -11,10 +11,6 @@
   justify-content: center;
 }
 
-.container-input {
-  max-width: 270px;
-}
-
 .botaoAdicionar {
   margin-left: 0.5rem;
   font-weight: bold;
@@ -91,12 +87,52 @@ input[type="number"] {
   -moz-appearance: textfield;
 
   margin-bottom: 0.15rem;
+}
 
-  &:last-child {
-    border-right: 2px solid black;
+@media (max-width: 600px) {
+  .container-input {
+    max-width: 230px;
   }
 
-  &:nth-child(6n) {
-    border-right: 2px solid black;
+  input[type="number"] {
+    &:last-child {
+      border-right: 2px solid black;
+    }
+
+    &:nth-child(5n) {
+      border-right: 2px solid black;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container-input {
+    max-width: 380px;
+  }
+
+  input[type="number"] {
+    &:last-child {
+      border-right: 2px solid black;
+    }
+
+    &:nth-child(8n) {
+      border-right: 2px solid black;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .container-input {
+    max-width: 600px;
+  }
+
+  input[type="number"] {
+    &:last-child {
+      border-right: 2px solid black;
+    }
+
+    &:nth-child(13n) {
+      border-right: 2px solid black;
+    }
   }
 }

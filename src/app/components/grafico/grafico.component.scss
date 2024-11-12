@@ -1,4 +1,18 @@
-#myChart {
-  min-width: 400px;
-  width: 35vw;
+@media (max-width: 600px) {
+  #myChart {
+    width: 65vw;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #myChart {
+    width: 55vw;
+  }
+}
+
+@media (min-width: 1025px) {
+  #myChart {
+    min-width: 600px;
+    width: 35vw;
+  }
 }
