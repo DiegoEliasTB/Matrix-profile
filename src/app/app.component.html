@@ -10,11 +10,11 @@
     }
   </div>
 
-  <form [formGroup]="formulario">
+  <div>
     <app-sequenciador
       (onCreateVetor)="getDadosVetor($event)"
     ></app-sequenciador>
-  </form>
+  </div>
 
   <router-outlet />
 </div>

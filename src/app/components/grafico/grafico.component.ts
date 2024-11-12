@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-
+import { Component, ElementRef } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
@@ -8,22 +7,10 @@ import { Chart, registerables } from 'chart.js';
   templateUrl: './grafico.component.html',
   styleUrl: './grafico.component.scss',
 })
-export class GraficoComponent implements OnInit {
+export class GraficoComponent {
   chart: any;
 
   constructor(private el: ElementRef) {}
-
-  ngOnInit() {}
-
-  destroy() {
-    const element = this.el.nativeElement.querySelector(
-      '#myChart'
-    ) as HTMLElement;
-
-    if (element) {
-      element.parentElement?.removeChild(element);
-    }
-  }
 
   createChart(vetor: number[]) {
     const vetorLinha = vetor.map((it, index) => index + 1);
@@ -50,5 +37,15 @@ export class GraficoComponent implements OnInit {
       },
       options: {},
     });
+  }
+
+  destroy() {
+    const element = this.el.nativeElement.querySelector(
+      '#myChart'
+    ) as HTMLElement;
+
+    if (element) {
+      element.parentElement?.removeChild(element);
+    }
   }
 }
