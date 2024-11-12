@@ -40,12 +40,59 @@ h1 {
   margin-bottom: 0.15rem;
 
   font-size: 12px;
+}
 
-  &:last-child {
-    border-right: solid 2px black;
+.container-vetor-resposta {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 230px;
+  margin: 2rem 0;
+}
+
+@media (max-width: 600px) {
+  .container-vetor-resposta {
+    max-width: 230px;
   }
 
-  &:nth-child(6n) {
-    border-right: 2px solid black;
+  .quadrado-resposta-vetor {
+    &:last-child {
+      border-right: solid 2px black;
+    }
+
+    &:nth-child(5n) {
+      border-right: 2px solid black;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container-vetor-resposta {
+    max-width: 420px;
+  }
+
+  .quadrado-resposta-vetor {
+    &:last-child {
+      border-right: solid 2px black;
+    }
+
+    &:nth-child(10n) {
+      border-right: 2px solid black;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .container-vetor-resposta {
+    max-width: 600px;
+  }
+
+  .quadrado-resposta-vetor {
+    &:last-child {
+      border-right: solid 2px black;
+    }
+
+    &:nth-child(15n) {
+      border-right: 2px solid black;
+    }
   }
 }

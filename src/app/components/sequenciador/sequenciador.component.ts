@@ -59,7 +59,7 @@ export class SequenciadorComponent {
     this.renderer.setProperty(inputQuantidadeSubsequencia, 'value', 1);
 
     const inputCasasDecimais = this.el.nativeElement.querySelector(
-      '#inputCasasDecimais'
+      '#casasDecimais'
     ) as HTMLInputElement;
 
     this.renderer.setProperty(inputCasasDecimais, 'value', 1);
